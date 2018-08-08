@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giphy Search</title>
+</head>
+<body>
+
+        <div class="conatiner">
+            <h1>Search</h1>
+            <div id="players-view"></div>
+
+            <form id-="player-form">
+                <label for="player-input">Add a Fútbol Player</label>
+                <input type="text" id="player-input"><br>
+
+                <input id="add-player" type="submit" value="Add a Fútbol Player">
+            </form>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+        var players = ["Messi", "Ronaldo", "Ronaldinho", "Luis Suarez"];
+
+        function renderButtons() {
+            $("#players-view").empty();
+
+            for (var i = 0; i < players.length; i++) {
+                var a = $("<button>");
+                a.addClass("player");
+                a.attr("data-name", players[i]);
+                a.text(players[i]);
+                $("#players-view").append(a);
+            }
+        }
+
+        $("#add-player").on("click", function (event) {
+            event.preventDefault();
+
+            var player =$("#player-input").val().trim();
+            players.push(player);
+
+            renderButtons();
+        });
+
+        renderButtons();
+
+          // Example queryURL for Giphy API
+        //   var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+
+        //   $.ajax({
+        //       url: queryURL,
+        //       method: "GET"
+        //   }).then(function(response) {
+        //       console.log(response);
+        //   });
+    
+    </script>
+    </div>
+</body>
+</html>
